@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Simple Trello-Like UI</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  h1, h2, h3 {
+    margin-top: 0;
+  }
+  .board, .list, .card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .board:hover, .list:hover, .card:hover {
+    background: #f9f9f9;
+    cursor: pointer;
+  }
+  .lists, .cards {
+    margin-left: 20px;
+  }
+</style>
+</head>
+<body>
+<h1>My Trello Clone</h1>
+<div id="boards"></div>
+<div id="details"></div>
+
+<script>
+  // Update this if your API is at a different port:
+  const API_URL = "http://localhost:8000";
+
+  const boardsContainer = document.getElementById('boards');
+  const detailsContainer = document.getElementById('details');
+
+  // Fetch all boards from the API
+  async function loadBoards() {
+    const res = await fetch(`${API_URL}/boards`);
+    if (!res.ok) {
+      boardsContainer.innerHTML = "Failed to load boards.";
+      return;
+    }
+    const boards = await res.json();
+    boardsContainer.innerHTML = "<h2>Boards</h2>";
+    boards.forEach(board => {
+      const div = document.createElement('div');
+      div.className = 'board';
+      div.textContent = board.title;
+      div.onclick = () => showBoardDetails(board.id);
+      boardsContainer.appendChild(div);
+    });
+  }
+
+  async function showBoardDetails(boardId) {
+    detailsContainer.innerHTML = "<p>Loading board details...</p>";
+    const res = await fetch(`${API_URL}/boards/${boardId}`);
+    if (!res.ok) {
+      detailsContainer.innerHTML = "Failed to load board details.";
+      return;
+    }
+    const board = await res.json();
+
+    // Display board title
+    detailsContainer.innerHTML = `<h2>${board.title}</h2>`;
+    const listsDiv = document.createElement('div');
+    listsDiv.className = 'lists';
+    board.lists.forEach(list => {
+      const listDiv = document.createElement('div');
+      listDiv.className = 'list';
+      listDiv.innerHTML = `<h3>${list.title}</h3>`;
+      
+      const cardsDiv = document.createElement('div');
+      cardsDiv.className = 'cards';
+      list.cards.forEach(card => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+        cardDiv.textContent = card.title;
+        cardsDiv.appendChild(cardDiv);
+      });
+      
+      listDiv.appendChild(cardsDiv);
+      listsDiv.appendChild(listDiv);
+    });
+    detailsContainer.appendChild(listsDiv);
+  }
+
+  // Initial load
+  loadBoards();
+</script>
+</body>
+</html>
