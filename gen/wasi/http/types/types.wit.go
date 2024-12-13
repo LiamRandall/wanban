@@ -8,11 +8,11 @@
 package types
 
 import (
+	monotonicclock "github.com/LiamRandall/wanban/gen/wasi/clocks/monotonic-clock"
+	ioerror "github.com/LiamRandall/wanban/gen/wasi/io/error"
+	"github.com/LiamRandall/wanban/gen/wasi/io/poll"
+	"github.com/LiamRandall/wanban/gen/wasi/io/streams"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
-	monotonicclock "github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/clocks/monotonic-clock"
-	ioerror "github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/io/error"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/io/poll"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/io/streams"
 )
 
 // Duration represents the type alias "wasi:http/types@0.2.0#duration".

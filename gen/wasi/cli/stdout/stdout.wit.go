@@ -4,8 +4,8 @@
 package stdout
 
 import (
+	"github.com/LiamRandall/wanban/gen/wasi/io/streams"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/io/streams"
 )
 
 // OutputStream represents the imported type alias "wasi:cli/stdout@0.2.0#output-stream".

@@ -4,9 +4,9 @@
 package tcpcreatesocket
 
 import (
+	"github.com/LiamRandall/wanban/gen/wasi/sockets/network"
+	"github.com/LiamRandall/wanban/gen/wasi/sockets/tcp"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/sockets/network"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/sockets/tcp"
 )
 
 // Network represents the imported type alias "wasi:sockets/tcp-create-socket@0.2.0#network".

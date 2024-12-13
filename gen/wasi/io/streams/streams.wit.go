@@ -4,9 +4,9 @@
 package streams
 
 import (
+	ioerror "github.com/LiamRandall/wanban/gen/wasi/io/error"
+	"github.com/LiamRandall/wanban/gen/wasi/io/poll"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
-	ioerror "github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/io/error"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/io/poll"
 )
 
 // Error represents the imported type alias "wasi:io/streams@0.2.0#error".

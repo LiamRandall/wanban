@@ -4,8 +4,8 @@
 package terminalstderr
 
 import (
+	terminaloutput "github.com/LiamRandall/wanban/gen/wasi/cli/terminal-output"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
-	terminaloutput "github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/cli/terminal-output"
 )
 
 // TerminalOutput represents the imported type alias "wasi:cli/terminal-stderr@0.2.0#terminal-output".

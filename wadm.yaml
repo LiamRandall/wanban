@@ -16,11 +16,47 @@ spec:
       type: component
       properties:
         image: file://./build/http_hello_world_s.wasm
+        config: 
+          - name: custom-config
+            properties: 
+              foo: bar
+              log-level: debug
       traits:
         # Govern the spread/scheduling of the component
         - type: spreadscaler
           properties:
             instances: 1
+
+        # Link the component to Redis on the default Redis port
+        #
+        # Establish a unidirectional link to the `kvredis` (the keyvalue capability provider),
+        # so the `counter` component can make use of keyvalue functionality provided by the Redis
+        # (i.e. using a keyvalue cache)            
+        - type: link
+          properties:
+            target: kvredis
+            namespace: wasi
+            package: keyvalue
+            interfaces: [atomics, store]
+            target_config:
+              - name: redis-url
+                properties:
+                  url: redis://0.0.0.0:6379
+
+    # Add a capability provider that enables Redis access
+    - name: kvredis
+      type: capability
+      properties:
+        image: ghcr.io/wasmcloud/keyvalue-redis:0.28.1
+        ## To configure OTEL integration for this provider specifically, uncomment the lines below
+        # config:
+        #   - name: otel
+        #     properties:
+        #       otel_exporter_otlp_endpoint: "http://all-in-one:4318"
+        #       otel_exporter_otlp_traces_endpoint: "http://traces-backend/v1/traces"
+        #       otel_exporter_otlp_metrics_endpoint: "http://metrics-backend/v1/metrics"
+        #       otel_exporter_otlp_logs_endpoint: "http://logs-backend/v1/logs"
+
 
     # Add a capability provider that enables HTTP access
     - name: httpserver

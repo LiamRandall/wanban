@@ -3,10 +3,14 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strings"
 
+	gen "github.com/LiamRandall/wanban/gen"
 	"github.com/google/uuid"
+
+	//	gen "github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen"
 	"go.wasmcloud.dev/component/net/wasihttp"
 )
 
@@ -287,4 +291,9 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 func init() {
 	wasihttp.HandleFunc(handleRequest)
 
+	logLevel := gen.WasiConfig0_2_0_draft_RuntimeGet("log-level").Unwrap().Unwrap()
+	//
+	// Prints "debug"
+	//
+	fmt.Println("%s", logLevel)
 }

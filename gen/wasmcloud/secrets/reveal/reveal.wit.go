@@ -4,8 +4,8 @@
 package reveal
 
 import (
+	"github.com/LiamRandall/wanban/gen/wasmcloud/secrets/store"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasmcloud/secrets/store"
 )
 
 // Secret represents the imported type alias "wasmcloud:secrets/reveal@0.1.0-draft#secret".

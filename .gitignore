@@ -25,5 +25,5 @@ go.work.sum
 .env
 
 # wasm
-*.wasm
+**.wasm
 .wasm
