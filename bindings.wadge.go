@@ -5,6 +5,7 @@
 package main
 
 import (
+	github_com__LiamRandall__wanban__gen__wasi__config__runtime "github.com/LiamRandall/wanban/gen/wasi/config/runtime"
 	github_com__bytecodealliance__wasm___tools___go__cm "github.com/bytecodealliance/wasm-tools-go/cm"
 	go_wasmcloud_dev__component__gen__wasi__clocks__monotonic___clock "go.wasmcloud.dev/component/gen/wasi/clocks/monotonic-clock"
 	go_wasmcloud_dev__component__gen__wasi__http__outgoing___handler "go.wasmcloud.dev/component/gen/wasi/http/outgoing-handler"
@@ -83,6 +84,46 @@ func wasmimport_SubscribeInstant(when0 uint64) (result0 uint32) {
 			return ptr
 		}(), func() unsafe.Pointer {
 			ptr := unsafe.Pointer(&result0)
+			__p.Pin(ptr)
+			return ptr
+		}())
+	}); __err != nil {
+		wadge.CurrentErrorHandler()(__err)
+	}
+	return
+}
+
+//go:linkname wasmimport_Get github.com/LiamRandall/wanban/gen/wasi/config/runtime.wasmimport_Get
+func wasmimport_Get(key0 *uint8, key1 uint32, result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__LiamRandall__wanban__gen__wasi__config__runtime.OptionStringShape, github_com__bytecodealliance__wasm___tools___go__cm.Option[string], github_com__LiamRandall__wanban__gen__wasi__config__runtime.ConfigError]) {
+	var __p runtime.Pinner
+	defer __p.Unpin()
+	if __err := wadge.WithCurrentInstance(func(__instance *wadge.Instance) error {
+		return __instance.Call("wasi:config/runtime@0.2.0-draft", "get", func() unsafe.Pointer {
+			ptr := unsafe.Pointer(key0)
+			__p.Pin(ptr)
+			return ptr
+		}(), func() unsafe.Pointer {
+			ptr := unsafe.Pointer(&key1)
+			__p.Pin(ptr)
+			return ptr
+		}(), func() unsafe.Pointer {
+			ptr := unsafe.Pointer(result)
+			__p.Pin(ptr)
+			return ptr
+		}())
+	}); __err != nil {
+		wadge.CurrentErrorHandler()(__err)
+	}
+	return
+}
+
+//go:linkname wasmimport_GetAll github.com/LiamRandall/wanban/gen/wasi/config/runtime.wasmimport_GetAll
+func wasmimport_GetAll(result *github_com__bytecodealliance__wasm___tools___go__cm.Result[github_com__LiamRandall__wanban__gen__wasi__config__runtime.ConfigErrorShape, github_com__bytecodealliance__wasm___tools___go__cm.List[[2]string], github_com__LiamRandall__wanban__gen__wasi__config__runtime.ConfigError]) {
+	var __p runtime.Pinner
+	defer __p.Unpin()
+	if __err := wadge.WithCurrentInstance(func(__instance *wadge.Instance) error {
+		return __instance.Call("wasi:config/runtime@0.2.0-draft", "get-all", func() unsafe.Pointer {
+			ptr := unsafe.Pointer(result)
 			__p.Pin(ptr)
 			return ptr
 		}())
