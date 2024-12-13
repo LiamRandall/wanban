@@ -4,8 +4,8 @@
 package preopens
 
 import (
+	"github.com/LiamRandall/wanban/gen/wasi/filesystem/types"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/filesystem/types"
 )
 
 // Descriptor represents the imported type alias "wasi:filesystem/preopens@0.2.0#descriptor".

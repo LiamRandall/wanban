@@ -4,9 +4,9 @@
 package types
 
 import (
+	wallclock "github.com/LiamRandall/wanban/gen/wasi/clocks/wall-clock"
+	"github.com/LiamRandall/wanban/gen/wasi/io/streams"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
-	wallclock "github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/clocks/wall-clock"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/io/streams"
 )
 
 // InputStream represents the imported type alias "wasi:filesystem/types@0.2.0#input-stream".

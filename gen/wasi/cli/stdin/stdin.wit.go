@@ -4,8 +4,8 @@
 package stdin
 
 import (
+	"github.com/LiamRandall/wanban/gen/wasi/io/streams"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/io/streams"
 )
 
 // InputStream represents the imported type alias "wasi:cli/stdin@0.2.0#input-stream".

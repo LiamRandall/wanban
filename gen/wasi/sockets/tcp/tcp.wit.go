@@ -4,11 +4,11 @@
 package tcp
 
 import (
+	monotonicclock "github.com/LiamRandall/wanban/gen/wasi/clocks/monotonic-clock"
+	"github.com/LiamRandall/wanban/gen/wasi/io/poll"
+	"github.com/LiamRandall/wanban/gen/wasi/io/streams"
+	"github.com/LiamRandall/wanban/gen/wasi/sockets/network"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
-	monotonicclock "github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/clocks/monotonic-clock"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/io/poll"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/io/streams"
-	"github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/sockets/network"
 )
 
 // InputStream represents the imported type alias "wasi:sockets/tcp@0.2.0#input-stream".

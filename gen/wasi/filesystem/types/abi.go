@@ -3,8 +3,8 @@
 package types
 
 import (
+	wallclock "github.com/LiamRandall/wanban/gen/wasi/clocks/wall-clock"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
-	wallclock "github.com/wasmcloud/wasmcloud/examples/golang/components/http-hello-world/gen/wasi/clocks/wall-clock"
 	"unsafe"
 )
 
